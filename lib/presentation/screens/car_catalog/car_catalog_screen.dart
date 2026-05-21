@@ -47,7 +47,7 @@ class _CarCatalogScreenState extends ConsumerState<CarCatalogScreen> {
             return _CarsGrid(
               cars: filtered,
               compareCars: compareCars,
-              onCarTap: (car) => context.go(
+              onCarTap: (car) => context.push(
                 '/catalog/${car.id}',
                 extra: CarDetailExtra(car: car),
               ),
@@ -69,7 +69,7 @@ class _CarCatalogScreenState extends ConsumerState<CarCatalogScreen> {
                   );
                 }
               },
-              onBookTap: (car) => context.go(
+              onBookTap: (car) => context.push(
                 '${AppRoutes.testDriveNew}?carId=${car.id}',
               ),
             );
@@ -169,7 +169,7 @@ class _CarCatalogScreenState extends ConsumerState<CarCatalogScreen> {
       ),
       actions: [
         IconButton(
-          onPressed: () => context.go(AppRoutes.testDriveHistory),
+          onPressed: () => context.push(AppRoutes.testDriveHistory),
           icon: const Icon(Icons.history_rounded, color: Colors.white70),
           tooltip: 'Test Drive History',
         ),

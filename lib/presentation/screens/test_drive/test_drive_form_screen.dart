@@ -119,7 +119,7 @@ class _TestDriveFormScreenState extends ConsumerState<TestDriveFormScreen> {
 
     if (_submitted) {
       return _SuccessScreen(
-        onViewHistory: () => context.go(AppRoutes.testDriveHistory),
+        onViewHistory: () => context.push(AppRoutes.testDriveHistory),
         onCatalog: () => context.go(AppRoutes.catalog),
       );
     }
