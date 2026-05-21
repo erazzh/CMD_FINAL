@@ -19,8 +19,9 @@ dependencies:
   # --- Navigation ---
   go_router: ^14.8.1        # ← ДОБАВЛЕНО ТОБОЙ
 
-  # --- Networking (Chopper) ---
+  # --- Networking (Chopper + HTTP) ---
   chopper: ^8.0.0
+  http: ^1.2.0
 
   # --- Local Database (Drift) ---
   drift: ^2.22.1

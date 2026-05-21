@@ -258,7 +258,7 @@ class _CarsGrid extends StatelessWidget {
         crossAxisCount: 2,
         mainAxisSpacing: 12,
         crossAxisSpacing: 12,
-        childAspectRatio: 0.72,
+        childAspectRatio: 0.67,
       ),
       itemCount: cars.length,
       itemBuilder: (context, index) {
@@ -633,7 +633,7 @@ class _LoadingGrid extends StatelessWidget {
         crossAxisCount: 2,
         mainAxisSpacing: 12,
         crossAxisSpacing: 12,
-        childAspectRatio: 0.72,
+        childAspectRatio: 0.67,
       ),
       itemCount: 6,
       itemBuilder: (_, __) => Container(

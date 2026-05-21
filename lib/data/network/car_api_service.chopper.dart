@@ -1,5 +1,4 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// dart format width=80
 
 part of 'car_api_service.dart';
 
@@ -19,9 +18,19 @@ final class _$CarApiService extends CarApiService {
   final Type definitionType = CarApiService;
 
   @override
-  Future<Response<dynamic>> getCars() {
+  Future<Response<dynamic>> getCarsByMake(String make, String apiKey) {
     final Uri $url = Uri.parse('/cars');
-    final Request $request = Request('GET', $url, client.baseUrl);
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'make': make,
+    };
+    final Map<String, String> $headers = <String, String>{'X-Api-Key': apiKey};
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      headers: $headers,
+    );
     return client.send<dynamic, dynamic>($request);
   }
 }
