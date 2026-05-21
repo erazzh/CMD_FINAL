@@ -12,20 +12,16 @@ class TestDriveHistoryItem {
   TestDriveHistoryItem({required this.request, this.car});
 }
 
-final testDriveHistoryProvider =
-    FutureProvider<List<TestDriveHistoryItem>>((ref) async {
-  final testDrivesState = ref.watch(testDriveNotifierProvider);
-  final testDrives = testDrivesState.value ?? [];
+final testDriveHistoryProvider = FutureProvider<List<TestDriveHistoryItem>>((ref) async {
+  final testDrivesAsync = ref.watch(testDriveNotifierProvider);
+  final carsAsync = ref.watch(carListProvider);
 
-  // Получаем список машин из carListProvider (Data Layer Даниара).
-  // AsyncValue.guard безопасно возвращает [] при ошибке сети.
-  final carsAsync = await ref.watch(carListProvider.future).catchError(
-        (_) => <CarEntity>[],
-      );
+  
+  final testDrives = testDrivesAsync.value ?? [];
+  final cars = carsAsync.value ?? [];
 
   return testDrives.map((drive) {
-    final matchingCar =
-        carsAsync.where((c) => c.id == drive.carId).firstOrNull;
+    final matchingCar = cars.where((c) => c.id == drive.carId).firstOrNull;
     return TestDriveHistoryItem(
       request: drive,
       car: matchingCar,
