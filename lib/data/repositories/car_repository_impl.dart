@@ -1,3 +1,5 @@
+import 'package:drift/drift.dart';
+
 import '../../domain/entities/car_entity.dart';
 import '../../domain/repositories/i_car_repository.dart';
 import '../local/app_database.dart';
